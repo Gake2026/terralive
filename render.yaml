@@ -1,0 +1,17 @@
+# Render Blueprint — one-click deploy for TerraLive.
+# Deploy URL: https://render.com/deploy?repo=https://github.com/Gake2026/terralive
+services:
+  - type: web
+    name: terralive
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      # Optional: paste a free key from https://aisstream.io to unlock GLOBAL live ships.
+      # Without it, the ships layer falls back to free regional AIS (Baltic/North Europe).
+      - key: AISSTREAM_API_KEY
+        sync: false

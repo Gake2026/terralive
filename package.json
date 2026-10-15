@@ -1,0 +1,1 @@
+{"dependencies":{"compression":"^1.7.4","express":"^4.19.2","ws":"^8.18.0"},"description":"TerraLive — watch the living planet. Live flights, ships, satellites and earthquakes on a 3D globe.","engines":{"node":">=18"},"license":"UNLICENSED","main":"server.js","name":"terralive","scripts":{"start":"node server.js"},"version":"1.0.0"}

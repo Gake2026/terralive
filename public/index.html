@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>TerraLive - Watch the Living Planet</title>
+<meta name="description" content="Every plane, ship and satellite on Earth - live on one globe.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='36' fill='%2304070d' stroke='%237df9ff' stroke-width='10'/></svg>">
+<link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="loading">
+  <div class="load-ring"></div>
+  <div class="load-title">TERRALIVE</div>
+  <div class="load-sub" id="load-status">ACQUIRING SIGNAL</div>
+</div>
+
+<div id="globe"></div>
+
+<header id="topbar">
+  <div class="brand"><span class="brand-dot"></span>TERRALIVE</div>
+  <div class="counters">
+    <span class="counter"><b id="c-flights">–</b> aircraft</span>
+    <span class="counter"><b id="c-sats">–</b> satellites</span>
+    <span class="counter"><b id="c-ships">–</b> vessels</span>
+    <span class="counter quakes"><b id="c-quakes">–</b> quakes</span>
+  </div>
+  <button id="share-btn" title="Copy share link">Share</button>
+  <nav class="legal" aria-label="Legal">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</header>
+
+<!-- ADSENSE-RESERVED: leaderboard slot (responsive). Hidden until AdSense is added. -->
+<div id="ad-leaderboard" class="ad-slot" data-ad-format="leaderboard"></div>
+
+<!-- ADSENSE-RESERVED: side-rail slot (300x250, desktop only). Hidden until AdSense is added. -->
+<aside id="ad-rail" class="ad-slot" data-ad-format="rectangle"></aside>
+
+<nav id="chips" aria-label="Layers">
+  <button class="chip on" data-layer="flights"><span>Flights</span></button>
+  <button class="chip on" data-layer="sats"><span>Satellites</span></button>
+  <button class="chip" data-layer="starlink"><span>Starlink</span></button>
+  <button class="chip on" data-layer="ships"><span>Ships</span></button>
+  <button class="chip on" data-layer="quakes"><span>Quakes</span></button>
+  <button class="chip on" data-layer="night"><span>Night</span></button>
+  <button class="chip ghost" id="nightops"><span>Night Ops</span></button>
+</nav>
+
+<div id="track-card" hidden>
+  <button id="track-close" aria-label="Stop tracking">X</button>
+  <div class="track-kind" id="track-kind">AIRCRAFT</div>
+  <div class="track-name" id="track-name">–</div>
+  <div class="track-sub" id="track-sub" hidden></div>
+  <img id="track-photo" hidden alt="Aircraft photo">
+  <div class="track-grid" id="track-grid"></div>
+  <div class="track-actions">
+    <button id="liveview-btn" hidden>View live</button>
+  </div>
+  <div class="track-note">Camera locked - drag to release</div>
+</div>
+
+<div id="hint">Click any plane, ship or satellite to track it</div>
+<div id="offline" hidden>SIGNAL LOST - RETRYING</div>
+<div id="toast" hidden></div>
+<div id="fps" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/satellite.js@5/dist/satellite.min.js"></script>
+<script src="/js/aircraft-types.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
